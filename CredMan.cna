@@ -12,9 +12,9 @@ alias CredMan {
 
     $args = bof_pack($1,"ZZi",$2,$3,$4);
 
-	btask($1, "Running CredMan");
+    btask($1, "Running CredMan");
 
 
-	beacon_inline_execute($1,$data,"go",$args);
+    beacon_inline_execute($1,$data,"go",$args);
 }
 
